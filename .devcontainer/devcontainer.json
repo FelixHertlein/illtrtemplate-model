@@ -1,0 +1,26 @@
+{
+	"build": {
+		"dockerfile": "../Dockerfile"
+	},
+	"runArgs": [
+		"--gpus=all",
+		"--ipc=host"
+	],
+	"forwardPorts": [],
+	"mounts": [
+		// "source=YOUR_INV3D_DIRECTORY,target=/workspaces/illtrtemplate-model/input/inv3d,type=bind,consistency=cached,readOnly=true",
+		//"source=YOUR_INV3D_REAL_UNWARP_DIRECTORY,target=/workspaces/illtrtemplate-model/input/inv3d_real_unwarp,type=bind,consistency=cached,readOnly=true" // optional: will be downloaded if data is required and not mounted
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-toolsai.jupyter",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.black-formatter",
+				"ms-python.isort",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	}
+}

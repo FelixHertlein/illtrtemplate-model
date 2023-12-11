@@ -1,0 +1,9 @@
+*.pyc
+
+input/*
+models/*
+output/*
+
+!models/README.md
+!input/README.md
+!output/README.md

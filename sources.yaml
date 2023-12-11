@@ -1,0 +1,12 @@
+inv3d:
+  train_dir: input/inv3d/train/
+  val_dir: input/inv3d/val/
+
+inv3d_test:
+  test_dir: input/inv3d/test/
+
+inv3d_real:
+  test_dir: input/inv3d/real/
+
+inv3d_real_unwarp:
+  test_dir: input/inv3d_real_unwarp
