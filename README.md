@@ -1,4 +1,6 @@
-# Template-guided Illumination Correction for Document Images with Imperfect Geometric Reconstruction 
+🚀 Good news! We have have created a demo showcasing the capabilities of our illumination correction model whithin the full document refinement pipeline. [Check it out here!](https://felixhertlein.de/docrefine/home)
+
+# Template-guided Illumination Correction for Document Images with Imperfect Geometric Reconstruction
 
 This is the repository will contain the code for our [paper](https://openaccess.thecvf.com/content/ICCV2023W/NIVT/html/Hertlein_Template-Guided_Illumination_Correction_for_Document_Images_with_Imperfect_Geometric_Reconstruction_ICCVW_2023_paper.html) which has been accepted at the International Conference on Computer Vision Workshop on New Ides in Vision Transformers ([NIVT-ICCV2023](https://sites.google.com/view/nivt-iccv2023/)).
 
@@ -19,12 +21,11 @@ We highly recommend to use the provided Devcontainer to make the usage as easy a
 - Press `F1` (or `CTRL + SHIFT + P`) and select `Dev Containers: Rebuild and Reopen Container`
 - Go to `Run and Debug (CTRL + SHIFT + D)` and press the run button, alternatively press `F5`
 
-
 ## Inference
 
 ### Start the inference
 
-```python3 inference.py --model illtr_template@inv3d@full --dataset inv3d_real_unwarp --gpu 0```
+`python3 inference.py --model illtr_template@inv3d@full --dataset inv3d_real_unwarp --gpu 0`
 
 ### Models
 
@@ -48,7 +49,7 @@ Inv3DRealUnwarped will be downloaded automatically when passing `inv3d_real_unwa
 
 To unwarp your own data, you can mout your data inside the container using the `.devcontainer/devcontainer.json` config.
 
-Mount your data folder to `/workspaces/inv3d-model/input/YOUR_DATA_DIRECTORY`. 
+Mount your data folder to `/workspaces/inv3d-model/input/YOUR_DATA_DIRECTORY`.
 Make sure, all samples contain an image `norm_image.png` and the corresponding template `template.png` (only for template-based models) within the sample subdirectory.
 
 ### Output: Unwarped images
@@ -75,12 +76,15 @@ input/inv3d
 ```
 
 ### Start a new training
-```python3 train.py --model illtr_template --dataset inv3d --version v1 --gpu 0 --num_workers 32```
+
+`python3 train.py --model illtr_template --dataset inv3d --version v1 --gpu 0 --num_workers 32`
 
 ### Resume a training
-```python3 train.py --model illtr_template --dataset inv3d --version v1 --gpu 0 --num_workers 32 --resume```
+
+`python3 train.py --model illtr_template --dataset inv3d --version v1 --gpu 0 --num_workers 32 --resume`
 
 ### Training output
+
 ```
 models/TRAINED_MODEL/
 |-- checkpoints
@@ -94,15 +98,16 @@ models/TRAINED_MODEL/
 ```
 
 ### Help
-``` 
-train.py [-h] 
+
+```
+train.py [-h]
 --model MODEL
---dataset DATASET 
---gpu GPU 
---num_workers NUM_WORKERS 
-[--version VERSION] 
+--dataset DATASET
+--gpu GPU
+--num_workers NUM_WORKERS
+[--version VERSION]
 [--fast_dev_run]
-[--model_kwargs MODEL_KWARGS] 
+[--model_kwargs MODEL_KWARGS]
 [--resume]
 
 Training script
@@ -125,6 +130,7 @@ options:
 ## Evaluation
 
 ### Models
+
 The pretrained models will be downloaded automatically before the evaluation starts.
 
 Available models are:
@@ -145,17 +151,16 @@ Inv3DRealUnwarped will be downloaded automatically when passing `inv3d_real_unwa
 
 Include the Inv3D dataset as described in section Training > Training dataset > Inv3d.
 
-
 ### Start an evaluation
 
-```python3 eval.py --trained_model geotr_template@inv3d@v1 --dataset inv3d_real --gpu 0 --num_workers 16```
+`python3 eval.py --trained_model geotr_template@inv3d@v1 --dataset inv3d_real --gpu 0 --num_workers 16`
 
-Evaluation output: 
+Evaluation output:
 
 ```
 models/TRAINED_MODEL
 |-- checkpoints
-|   `-- ... 
+|   `-- ...
 |-- eval
 |   `-- inv3d_real_unwarp
 |       `-- results.csv
@@ -166,16 +171,16 @@ models/TRAINED_MODEL
         |   |   |-- ill_image.png
         |   |   `-- orig_image.png
         |   |-- ...
-        |-- ... 
+        |-- ...
 ```
 
 ### Help
 
 ```
-eval.py [-h] 
+eval.py [-h]
 --trained_model MODEL
 --dataset DATASET
---gpu GPU 
+--gpu GPU
 --num_workers NUM_WORKERS
 
 Evaluation script
@@ -212,7 +217,7 @@ If you use the code of our paper for scientific research, please consider citing
 
 ## Acknowledgements
 
-The model IllTr is part of [DocTr](https://github.com/fh2019ustc/DocTr).  IllTrTemplate is based on IllTr.
+The model IllTr is part of [DocTr](https://github.com/fh2019ustc/DocTr). IllTrTemplate is based on IllTr.
 
 ## Affiliations
 
@@ -223,8 +228,3 @@ The model IllTr is part of [DocTr](https://github.com/fh2019ustc/DocTr).  IllTrT
 ## License
 
 This project is licensed under [MIT](LICENSE).
-
-
-
-
-
